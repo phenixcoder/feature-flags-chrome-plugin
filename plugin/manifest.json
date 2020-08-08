@@ -1,0 +1,42 @@
+{
+    "name": "Feature Flags",
+    "version": "1.0",
+    "description": "Chrome Extension to manage Feature Flags in supported web apps",
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "storage"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content-script.js"
+            ]
+        }
+    ],
+    "browser_action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "images/switch16.png",
+            "32": "images/switch32.png",
+            "48": "images/switch48.png",
+            "128": "images/switch128.png"
+        }
+    },
+    "icons": {
+        "16": "images/switch16.png",
+        "32": "images/switch32.png",
+        "48": "images/switch48.png",
+        "128": "images/switch128.png"
+    },
+    "manifest_version": 2
+}
