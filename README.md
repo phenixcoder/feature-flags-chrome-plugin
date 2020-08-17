@@ -2,7 +2,7 @@
 
 Chrome Plugin to manage Feature Flags on any supported web app.
 
-Chrome Web Store Link : **TBC**
+[![Chrome Web Store Link](ChromeWebStore_Badge_v2_496x150.png)](https://chrome.google.com/webstore/detail/feature-flags/hmflgmhoghcbmckbbgahfmklegllkggn)
 
 ---
 
