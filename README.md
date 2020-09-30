@@ -24,33 +24,51 @@ Example:
 // Declare Flags
 const flags = [
   {
-    key: 'flag.one'
+    key: 'flag.one',
     value: true, // current / initial state of feature flags in you app.
     description: 'First feature description', // Optional
     title: 'First feature', // Optional - If not passed, key will be used.
   },
   {
-    key: 'flag.two'
+    key: 'flag.two',
     value: true, // current / initial state of feature flags in you app.
     description: 'Second feature description', // Optional
     title: 'Second feature', // Optional - If not passed, key will be used.
-  }
+  },
 ];
 
 // This function will be called whenever a change happens in Chrome extension
 function listener(key, value) {
-    // Feature flag with key change and update value is in value.
+  // Feature flag with key change and update value is in value.
 
-    // Make your changes in your app
-    toggleFeatureFlag(key, value);
-    updateApp();
+  // Make your changes in your app
+  toggleFeatureFlag(key, value);
+  updateApp();
 }
-
 
 // Register Feature Flags with plugin
 if (window.featureFlagsPluginRegister) {
   window.featureFlagsPluginRegister(flags, listener);
 }
+```
+
+### Avoiding race conditions
+
+Sometimes your registration code runs before plugin registers `featureFlagsPluginRegister`. In this case you can expose a setup function `registerMyFeatureFlags` on `window` object so that the plugin loads, it will automatically call this function which will register your flags.
+
+`featureFlagsPluginRegister` function is also passed to your `registerMyFeatureFlags` which can be used to register the feature flags.
+
+> Note: This will only run once the plugin registers with the web page. later on you can still call `window.featureFlagsPluginRegister`.
+
+### Example
+
+```javascript
+window.registerMyFeatureFlags = (register) => {
+  register(toggles, (key, value) => {
+    console.info(`Toggling ${key} => ${value}`);
+    toggleFeatureFlag(key, value);
+  });
+};
 ```
 
 ---

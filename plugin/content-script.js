@@ -31,9 +31,12 @@
       }
       window.featureFlagsPluginRegister = featureFlagsPluginRegister;
       window.addEventListener('message', event => {
-
       });
       console.info('featureFlagsPluginRegister Registered :)');
+
+      if(window.registerMyFeatureFlags) {
+        window.registerMyFeatureFlags(featureFlagsPluginRegister);
+      }
     }
   
     function inject(fn) {
