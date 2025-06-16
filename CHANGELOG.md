@@ -68,9 +68,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 #### Test Application Added
 - `test-app/` directory with sample web application
-- Multiple server options:
-  - `server.js` - Node.js Express server
-  - `server.py` - Python Flask server
+- `server.js` - Node.js development server
 - `index.html` - Example web page with feature flag integration
 - `app.js` - Sample feature flag implementation
 - `README.md` - Testing instructions
@@ -127,7 +125,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `src/manifest.json` - Manifest V3
 - `src/popup.html` - Popup HTML
 - `src/injected-script.js` - Injected script
-- `test-app/` - Complete testing infrastructure
+- `test-app/` - Testing infrastructure with Node.js server
 
 #### Files Modified
 - `.gitignore` - Added node_modules, dist, build artifacts
@@ -221,6 +219,7 @@ The Vite build system provides:
 - Resolved content script injection timing
 - Improved error handling in popup interface
 - Enhanced cross-browser compatibility
+- Fixed test server ES module compatibility (converted CommonJS to ES modules)
 
 ### 🔒 Security Improvements
 

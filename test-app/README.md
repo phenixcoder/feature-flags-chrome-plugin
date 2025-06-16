@@ -20,27 +20,19 @@ Then load the extension in Chrome:
 
 ### 2. Start the Test Server
 
-Choose one of these methods to run the test server:
+Start the Node.js development server:
 
-**Option A: Python (recommended)**
-```bash
-cd test-app
-python3 server.py
-# Or specify a custom port: python3 server.py 3000
-```
-
-**Option B: Node.js**
 ```bash
 cd test-app
 node server.js
 # Or specify a custom port: node server.js 3000
 ```
 
-**Option C: Any other HTTP server**
+**Alternative: Use any HTTP server**
 ```bash
 cd test-app
-# Python 2
-python -m SimpleHTTPServer 8000
+# Python (if you prefer)
+python3 -m http.server 8000
 
 # PHP
 php -S localhost:8000
@@ -132,7 +124,7 @@ The test app includes these feature flags:
 
 ### Server Issues
 - Make sure the port isn't already in use
-- Try a different port: `python3 server.py 3001`
+- Try a different port: `node server.js 3001`
 - Check firewall settings if accessing from another device
 
 ## 📝 Integration Examples

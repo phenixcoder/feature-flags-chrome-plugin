@@ -5,10 +5,14 @@
  * Default port: 8000
  */
 
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
-const url = require('url');
+import http from 'http';
+import fs from 'fs';
+import path from 'path';
+import url from 'url';
+
+// Get __dirname equivalent in ES modules
+const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Default port
 const PORT = process.argv[2] || 8000;

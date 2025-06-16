@@ -76,7 +76,7 @@ npm run build
 3. Start the test server:
 ```shell
 cd test-app
-python3 server.py
+node server.js
 # Opens at http://localhost:8000
 ```
 
