@@ -61,7 +61,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 │   └── types/
 │       └── index.ts       # Type definitions
 ├── dist/                  # Built extension files (Vite output)
-├── plugin/               # Original JavaScript files (maintained)
 └── test-app/            # Testing infrastructure
 ```
 
@@ -135,10 +134,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `README.md` - Updated build instructions
 - `DEVELOPER.md` - Enhanced documentation
 - `package` - Updated packaging script
-- `plugin/manifest.json` - Updated to Manifest V3
-- `plugin/background.js` - Updated for service worker compatibility
-- `plugin/content-script.js` - Minor updates
-- `plugin/popup.js` - Minor updates
+- Legacy JavaScript files converted to TypeScript in `src/`
 
 ### 🔄 Breaking Changes
 

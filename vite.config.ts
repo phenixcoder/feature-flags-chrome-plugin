@@ -67,7 +67,7 @@ export default defineConfig({
         ];
 
         imageFiles.forEach(file => {
-          const srcPath = resolve(__dirname, 'plugin/images', file);
+          const srcPath = resolve(__dirname, 'src/images', file);
           const destPath = resolve(__dirname, 'dist/images', file);
           if (existsSync(srcPath)) {
             copyFileSync(srcPath, destPath);
