@@ -4,6 +4,32 @@ Chrome Plugin to manage Feature Flags on any supported web app.
 
 [![Chrome Web Store Link](ChromeWebStore_Badge_v2_496x150.png)](https://chrome.google.com/webstore/detail/feature-flags/hmflgmhoghcbmckbbgahfmklegllkggn)
 
+## 🚀 Built with TypeScript + Vite
+
+This extension is now built with modern tooling:
+- **TypeScript** for type safety and better development experience
+- **Vite** for fast builds and hot reloading during development
+- **Manifest V3** for latest Chrome extension standards
+
+### Development Setup
+
+```bash
+# Install dependencies
+npm install
+
+# Development build with watch mode
+npm run dev
+
+# Production build
+npm run build
+
+# Type checking
+npm run type-check
+
+# Package for distribution
+npm run package
+```
+
 ---
 
 ## Adding Feature Flag Support to your web app

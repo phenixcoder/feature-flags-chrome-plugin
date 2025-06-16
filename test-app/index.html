@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature Flags Test App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #007cba;
+            padding-bottom: 10px;
+        }
+        
+        .feature {
+            margin: 20px 0;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature.enabled {
+            border-color: #4CAF50;
+            background-color: #f1f8e9;
+        }
+        
+        .feature.disabled {
+            border-color: #f44336;
+            background-color: #ffebee;
+        }
+        
+        .feature h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        
+        .status {
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+        
+        .status.enabled {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .status.disabled {
+            background-color: #f44336;
+            color: white;
+        }
+        
+        .logs {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+        }
+        
+        .log-entry {
+            margin: 5px 0;
+            padding: 2px 0;
+        }
+        
+        .log-info { color: #007cba; }
+        .log-success { color: #28a745; }
+        .log-warning { color: #ffc107; }
+        .log-error { color: #dc3545; }
+        
+        .extension-status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .extension-detected {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .extension-not-detected {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        button {
+            background-color: #007cba;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        
+        button:hover {
+            background-color: #005a87;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚩 Feature Flags Test Application</h1>
+        
+        <div id="extension-status" class="extension-status extension-not-detected">
+            ❌ Feature Flags Extension Not Detected
+        </div>
+        
+        <p>This test application demonstrates integration with the Feature Flags Chrome Extension. 
+           Load the extension and refresh this page to see it in action!</p>
+        
+        <div class="feature" id="feature-dark-mode">
+            <h3>🌙 Dark Mode</h3>
+            <p>Toggle between light and dark themes</p>
+            <span class="status disabled" id="status-dark-mode">DISABLED</span>
+        </div>
+        
+        <div class="feature" id="feature-beta-ui">
+            <h3>🎨 Beta UI Components</h3>
+            <p>Enable experimental user interface elements</p>
+            <span class="status disabled" id="status-beta-ui">DISABLED</span>
+        </div>
+        
+        <div class="feature" id="feature-analytics">
+            <h3>📊 Advanced Analytics</h3>
+            <p>Enhanced tracking and reporting features</p>
+            <span class="status disabled" id="status-analytics">DISABLED</span>
+        </div>
+        
+        <div class="feature" id="feature-notifications">
+            <h3>🔔 Push Notifications</h3>
+            <p>Real-time browser notifications</p>
+            <span class="status disabled" id="status-notifications">DISABLED</span>
+        </div>
+        
+        <div>
+            <button onclick="testDirectRegistration()">Test Direct Registration</button>
+            <button onclick="testRaceConditionMethod()">Test Race Condition Method</button>
+            <button onclick="clearLogs()">Clear Logs</button>
+        </div>
+        
+        <div class="logs" id="logs">
+            <div class="log-entry log-info">🚀 Application loaded. Waiting for extension...</div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>

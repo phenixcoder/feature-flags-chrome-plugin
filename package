@@ -2,4 +2,4 @@
 
 rm -f plugin.zip
 
-zip plugin.zip -r plugin
+zip plugin.zip -r dist

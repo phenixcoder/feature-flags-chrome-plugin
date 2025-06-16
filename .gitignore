@@ -1,3 +1,16 @@
 plugin.crx
 plugin.pem
 plugin.zip
+
+# TypeScript/Vite build artifacts
+node_modules/
+dist/
+*.tsbuildinfo
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
